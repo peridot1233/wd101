@@ -1,0 +1,64 @@
+<h1>Registeraton Form</h1>
+      <style>
+   input#name:invalid:focus
+      {
+         border:1px solid red;
+      }
+   input#email:invalid:focus
+      {
+         border:1px solid red;
+      }
+   input#password:invalid:focus
+      {
+         border:1px solid red;
+      }
+   input#dob:invalid:focus
+      {
+         border:1px solid red;
+      }
+   </style>
+
+   <form id="user-form">
+
+    <label for="name">Name</label><br>
+    <input required type="text" id="name" name="name"><br><br>
+ 
+    <label for="email">Email</label><br>
+    <input required type="email" id="email" name="email"><br><br>
+ 
+    <label for="password">Password</label><br>
+    <input type="password" id="password" name="password"><br><br>
+ 
+    <label for="dob">Date of Birth</label><br>
+    <input type="date" id="dob" name="dob"><br><br>
+ 
+    <input type="checkbox" id="acceptTerms" name="acceptTerms">
+    <label for="acceptTerms">Accept Terms & Conditions</label><br><br>
+ 
+    <button type="submit">Submit</button>
+ </form>
+ <script>
+   const email=document.getElementById('email');
+   email.addEventListener('input',()=>validate(email));
+   const submit = document.getElementById('submit');
+   submit.addEventListener('click',()=>validate(email));
+   function validate(element)
+   {
+      if(element.validity.typeMismatch)
+      {
+         element.setCustomValidity("the email is not in the right format");
+         elemnt.reportValidity();
+      }
+      else{
+         element.setCustomValidity('');
+      }
+   }
+ </script>
+ <script src="./forms2.js"></script>
+ <div
+ class="relative bg-white px-6 mt-5 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:rounded-lg sm:px-10">
+<div class="mx-auto">
+   <h2 class="text-3xl text-center font-bold leading-tight">Entries</h2>
+   <div class="divide-y didide-gray-300/50" id="user-entries"></div>
+</div>
+</div>
